@@ -15,7 +15,7 @@ export const GET: APIRoute = ({ request, url }) => {
     .split(',')[0].trim().split(':')[0].toLowerCase();
 
   const tijelo = PRAVE_DOMENE.has(host)
-    ? 'User-agent: *\nAllow: /\nSitemap: https://mojacijena.hr/sitemap.xml\n'
+    ? 'User-agent: *\nAllow: /\nSitemap: https://mojacijena.hr/sitemap-index.xml\n'
     : 'User-agent: *\nDisallow: /\n';
 
   return new Response(tijelo, {

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9",
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/source-sans-3": "^5",
     "@fontsource-variable/source-serif-4": "^5",
     "@tailwindcss/vite": "^4",
