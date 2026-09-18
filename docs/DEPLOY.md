@@ -28,6 +28,10 @@ ništa — Astro ide na privremenu Coolify domenu i kasnije se domena samo zamij
 
 ## 1. DNS (nakon registracije domene)
 
+**Stanje 18. 9. 2026.: provedeno.** Domena registrirana preko hrvatskog hostinga, NS prebačeni
+na Cloudflare (`beau`/`natasha.ns.cloudflare.com`), zapisi upisani u Cloudflareu sa sivim
+oblakom (DNS only); `mojacijena.hr` i `www` žive s Let's Encrypt certifikatom.
+
 Coolify server: **167.233.70.110** (`*.apps.timis.cloud` već pokazuje na njega).
 
 | Tip | Ime | Vrijednost |
@@ -58,12 +62,14 @@ Projekt `mojacijena`, okruženje `production` (isto gdje je i servis).
    `main`, ali ako se prepiše po navici iz servisa, deploy padne na „branch not found“.
 2. **Build Pack: `Dockerfile`.** Ne Nixpacks. Dockerfile je u korijenu repoa i pinna
    `node:22-alpine`; Nixpacks bi birao svoju verziju Nodea i deploy ne bi bio ponovljiv.
-3. **Ports Exposes: `4321`.** Port Mappings ostaviti prazno — Traefik ide kroz Dockerovu mrežu,
-   a objavljen port bi aplikaciju izložio mimo proxyja.
+3. **Interni port je `3000`, ne 4321.** Dockerfile postavlja `PORT=4321`, ali platforma pri
+   pokretanju ubaci vlastiti `PORT=3000` koji ga pregazi, i Astro sluša na 3000. Na svim
+   domenama resursa *Internal port* mora biti `3000` — s 4321 Traefik vraća 502 (provjereno
+   18. 9. pri prebacivanju na pravu domenu). Port Mappings ostaviti prazno.
 4. **Domains:** zasad klik na *Generate Domain* (dobije se nešto na `*.apps.timis.cloud`).
    Kad DNS iz koraka 1 proradi, polje se zamijeni s
    `https://mojacijena.hr,https://www.mojacijena.hr` i pokrene Redeploy.
-5. **Health check:** path `/`, port `4321`, očekivani status `200`. Astro nema `/up`.
+5. **Health check:** path `/`, port `3000` (v. točku 3), očekivani status `200`. Astro nema `/up`.
 6. **Environment Variables** (stranica same aplikacije, ne *Shared Variables* — v. zamku 2 u
    PREDAJA §1). Sve su **runtime**, nijedna nije *Build Variable*: `src/pages/api/kontakt.ts`
    ih čita preko `process.env` pri zahtjevu, ne pri buildu.
