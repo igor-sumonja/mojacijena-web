@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import PriceCards from '../components/PriceCards.astro';
-import UkljucenjeIPretplata from '../components/UkljucenjeIPretplata.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { faq } from '../data/faq';
 const topFaq = faq.filter((q) => q.landing);
@@ -13,15 +12,15 @@ const topFaq = faq.filter((q) => q.landing);
     <div class="flex flex-col gap-6 lg:col-span-7">
       <p class="eyebrow flex items-center gap-2.5"><span class="inline-block h-2 w-2 rounded-full bg-accent"></span>Obveza od 1. listopada 2026.</p>
       <h1 class="text-4xl leading-[1.12] sm:text-5xl lg:text-[58px]">Cjenik na vašoj web stranici, u obliku koji propis traži</h1>
-      <p class="max-w-[620px] text-lg text-ink-2 sm:text-xl">Od 1. listopada 2026. trgovci i pružatelji usluga koji imaju web stranicu moraju na njoj objaviti cjenik u obliku koji računalo može pročitati, a uz cijene isticati i sidrenu cijenu. Postavimo to na vašoj postojećoj stranici i održavamo dalje.</p>
+      <p class="max-w-[620px] text-lg text-ink-2 sm:text-xl">Postavimo ga na vašu postojeću stranicu i održavamo dalje — promjene, objave i prilagodbu propisu.</p>
       <div class="mt-2 flex flex-col gap-3 sm:flex-row">
         <a href="/kontakt" class="btn-primary text-lg">Zatražite ponudu</a>
-        <a href="#kako" class="btn-secondary text-lg">Pogledajte kako izgleda</a>
+        <a href="#paketi" class="btn-secondary text-lg">Pogledajte pakete</a>
       </div>
       <p class="text-[15px] italic text-muted">Tehnički dio provodimo mi. Za točnost cijena i sadržaj cjenika odgovarate vi.</p>
     </div>
     <div class="lg:col-span-5 lg:justify-self-end">
-      <div class="w-full max-w-[440px] overflow-hidden rounded-xl border border-line bg-white shadow-[0_24px_48px_rgba(28,34,41,0.08)]">
+      <div class="anim-float w-full max-w-[440px] overflow-hidden rounded-xl border border-line bg-white shadow-[0_24px_48px_rgba(28,34,41,0.08)]">
         <div class="flex h-10 items-center gap-2.5 bg-paper-2 px-4">
           <span class="inline-block h-2.5 w-2.5 rounded-full bg-cream"></span>
           <span class="inline-block h-2.5 w-2.5 rounded-full bg-cream"></span>
@@ -44,7 +43,7 @@ const topFaq = faq.filter((q) => q.landing);
           <div class="mt-1 flex flex-wrap gap-2.5">
             {['latest.csv', 'latest.xml', 'cjenik.pdf'].map((f) => <span class="rounded border border-accent px-2.5 py-1 text-[13px] font-semibold text-accent">{f}</span>)}
           </div>
-          <p class="text-xs text-muted">Zadnja objava: 1. 10. 2026. u 06:30. Arhiva svih objava.</p>
+          <p class="flex items-center gap-2 text-xs text-muted"><span class="anim-dot inline-block h-2 w-2 rounded-full bg-accent"></span>Zadnja objava: 1. 10. 2026. u 06:30. Arhiva svih objava.</p>
         </div>
       </div>
     </div>
@@ -53,217 +52,111 @@ const topFaq = faq.filter((q) => q.landing);
   <!-- 2. Što propis traži -->
   <section class="section section-white">
     <div class="container-x flex flex-col gap-10">
-      <div class="flex max-w-[760px] flex-col gap-3">
-        <p class="eyebrow">Što propis traži</p>
-        <h2 class="text-3xl sm:text-4xl">Tri stvari, bez ijedne kratice</h2>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        <div class="flex flex-col gap-3.5 rounded-lg bg-paper p-8">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="6" y="4" width="24" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 12h12M12 18h12M12 24h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <h3 class="font-sans text-xl">Cjenik u strojno čitljivom obliku</h3>
-          <p class="text-ink-2">Datoteka koju računalo može pročitati, na vašoj web stranici. Vi je ne morate razumjeti; mi je izrađujemo iz vaših cijena.</p>
+      <p class="eyebrow">Što propis traži</p>
+      <div class="grid gap-10 md:grid-cols-3">
+        <div class="anim-rise flex flex-col gap-3 text-accent">
+          <svg class="anim-draw" width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect x="7" y="4" width="22" height="28" rx="3" stroke="currentColor" stroke-width="2"/><path d="M15 15l-4 4 4 4M21 15l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2 class="text-[21px] text-ink">Cjenik koji računalo može pročitati</h2>
+          <p class="text-ink-2">Datoteka na vašoj adresi, javna i uvijek ažurna. Vi je ne morate razumjeti; izrađujemo je mi.</p>
         </div>
-        <div class="flex flex-col gap-3.5 rounded-lg bg-paper p-8">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="13" stroke="currentColor" stroke-width="2"/><path d="M18 10v8l5 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3 class="font-sans text-xl">Redovito ažuriranje i arhiva</h3>
-          <p class="text-ink-2">Trgovine svaki dan do 8 ujutro, usluge kod svake promjene cijene. Objavljeni cjenici moraju ostati dostupni 30 dana.</p>
+        <div class="anim-rise-2 flex flex-col gap-3 text-accent">
+          <svg class="anim-draw" width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="7.5" r="3" stroke="currentColor" stroke-width="2"/><path d="M18 10.5V31M8 22c1.2 5.6 5.6 8 10 8s8.8-2.4 10-8M11.5 15.5h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <h2 class="text-[21px] text-ink">Sidrena cijena uz svaku cijenu</h2>
+          <p class="text-ink-2">Cijena od 10. rujna 2026., istaknuta uz redovnu. Za hranu, piće, kozmetiku i kućanstvo vrijedi 2. svibnja 2025.</p>
         </div>
-        <div class="flex flex-col gap-3.5 rounded-lg bg-paper p-8">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 5v22M18 27c-5 0-9-3-10-7M18 27c5 0 9-3 10-7M13 10h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="5" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
-          <h3 class="font-sans text-xl">Sidrena cijena uz redovnu</h3>
-          <p class="text-ink-2">Cijena koja je za taj proizvod ili uslugu vrijedila 10. rujna 2026. Za hranu, piće, kozmetiku, sredstva za čišćenje, toaletne potrepštine i kućanstvo to je cijena od 2. svibnja 2025.</p>
+        <div class="anim-rise-3 flex flex-col gap-3 text-accent">
+          <svg class="anim-draw" width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="13" stroke="currentColor" stroke-width="2"/><path d="M18 11v7l5 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h2 class="text-[21px] text-ink">Redovito ažuriranje</h2>
+          <p class="text-ink-2">Usluge kod svake promjene, trgovine svako jutro do 8:00. Objave ostaju dostupne 30 dana.</p>
         </div>
       </div>
       <p class="text-[15px] text-muted">Za nepoštivanje su propisane kazne od 3.000 do 30.000 eura za trgovca i od 1.000 do 4.000 eura za odgovornu osobu. Izvori: <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1213.html" rel="noopener">Odluka o objavi cjenika</a> i <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1212.html" rel="noopener">Odluka o isticanju dodatne cijene</a>, NN 101/2026.</p>
     </div>
   </section>
 
-  <!-- 3. Odnosi li se na vas -->
-  <section class="section">
-    <div class="container-x grid gap-10 lg:grid-cols-12">
-      <div class="flex flex-col gap-4 lg:col-span-5">
-        <p class="eyebrow">Provjera</p>
-        <h2 class="text-3xl sm:text-4xl">Odnosi li se ovo na vas?</h2>
-        <p class="text-ink-2">Obveza se odnosi na trgovce i pružatelje usluga koji imaju uspostavljene mrežne stranice.</p>
-        <p class="text-[15px] text-muted">Jeste li obveznik u svom konkretnom slučaju ne procjenjujemo mi. To je pitanje za vašeg knjigovođu ili HOK.</p>
-      </div>
-      <div class="flex flex-col gap-4 lg:col-span-7">
-        <div class="flex flex-col gap-2 rounded-lg border border-line border-l-4 border-l-accent bg-white px-7 py-6 sm:flex-row sm:gap-5">
-          <div class="min-w-[130px] font-serif text-xl font-semibold text-accent">Vjerojatno da</div>
-          <p class="text-ink-2">ako imate web stranicu na kojoj su vam istaknute cijene ili preko koje nudite proizvode i usluge potrošačima.</p>
+  <!-- 3. Tri koraka -->
+  <section id="kako" class="section scroll-mt-20">
+    <div class="container-x flex flex-col gap-10">
+      <h2 class="text-3xl sm:text-4xl">Tri koraka, a onda ide samo</h2>
+      <div class="grid gap-10 md:grid-cols-3">
+        <div class="anim-rise flex flex-col gap-3.5">
+          <div class="flex items-center">
+            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent font-serif text-[26px] font-semibold text-paper">1</div>
+            <div class="ml-4 h-0.5 flex-1 bg-line"></div>
+          </div>
+          <h3 class="font-sans text-xl">Unesemo vaš cjenik</h3>
+          <p class="-mt-1 text-ink-2">Iz Excela, papira ili fotografije starog cjenika — sa sidrenim cijenama i dokazima.</p>
         </div>
-        <div class="flex flex-col gap-2 rounded-lg border border-line border-l-4 border-l-sand bg-white px-7 py-6 sm:flex-row sm:gap-5">
-          <div class="min-w-[130px] font-serif text-xl font-semibold text-sand-2">Ne pomažemo</div>
-          <p class="text-ink-2">ako imate webshop na WooCommerceu. Za njega postoje gotovi dodaci i to je jeftinije rješenje od našeg. Recite nam, uputit ćemo vas.</p>
+        <div class="anim-rise-2 flex flex-col gap-3.5">
+          <div class="flex items-center">
+            <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent font-serif text-[26px] font-semibold text-paper">2</div>
+            <div class="ml-4 h-0.5 flex-1 bg-line"></div>
+          </div>
+          <h3 class="font-sans text-xl">Spojimo ga s vašom stranicom</h3>
+          <p class="-mt-1 text-ink-2">Pojavi se na vasadomena.hr/cjenik/ — vi na svom webu ne mijenjate ništa.</p>
         </div>
-        <div class="flex flex-col gap-2 rounded-lg border border-line border-l-4 border-l-sand bg-white px-7 py-6 sm:flex-row sm:gap-5">
-          <div class="min-w-[130px] font-serif text-xl font-semibold text-sand-2">Ne odnosi se</div>
-          <p class="text-ink-2">na vas ako nemate web stranicu. Ako web želite, možemo ga napraviti s ugrađenim cjenikom, ali obveza tada nastaje.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Usluge -->
-  <section class="container-x pb-16 sm:pb-20">
-    <div class="grid gap-8 rounded-2xl bg-ink px-7 py-10 text-paper sm:px-12 sm:py-14 lg:grid-cols-12 lg:items-center">
-      <div class="flex flex-col gap-4 lg:col-span-7">
-        <h2 class="text-2xl sm:text-[34px] sm:leading-tight">Ako pružate usluge, ovo je jednostavnije nego što mislite</h2>
-        <p class="text-lg text-cream">Za usluge propis traži samo naziv usluge, cijenu i sidrenu cijenu. Za trgovinu robom traži se puno više po artiklu: šifra, marka, jedinica mjere, barkod, dostupnost.</p>
-      </div>
-      <div class="grid grid-cols-2 gap-4 lg:col-span-5">
-        <div class="flex flex-col gap-1.5 rounded-lg border border-ink-2 p-5">
-          <div class="text-sm uppercase tracking-wider text-cream">Usluge</div>
-          <div class="font-serif text-4xl font-semibold leading-none">3</div>
-          <div class="text-[15px] text-cream">podatka po usluzi</div>
-        </div>
-        <div class="flex flex-col gap-1.5 rounded-lg border border-ink-2 p-5">
-          <div class="text-sm uppercase tracking-wider text-cream">Trgovina</div>
-          <div class="font-serif text-4xl font-semibold leading-none">10</div>
-          <div class="text-[15px] text-cream">podataka po artiklu</div>
-        </div>
-        <p class="col-span-2 text-[15px] text-cream">Frizerski salon s 20 usluga u sustav se unosi u pola sata. Trgovina s 800 artikala je drugi posao i individualna ponuda.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Kako to izgleda -->
-  <section id="kako" class="section section-white scroll-mt-20">
-    <div class="container-x flex flex-col gap-12">
-      <div class="flex max-w-[760px] flex-col gap-3">
-        <p class="eyebrow">Kako to izgleda kod nas</p>
-        <h2 class="text-3xl sm:text-4xl">Četiri koraka, a onda ide samo</h2>
-      </div>
-      <ol class="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
-        {[
-          ['Unesemo vaš cjenik', 'Iz vašeg popisa, Excel tablice ili fotografije starog cjenika. Uz svaku stavku upisuje se i cijena koja je vrijedila na referentni datum. To je ono što sidrenu cijenu čini dokazivom.'],
-          ['Spojimo sustav s vašom stranicom', 'Datoteke se pojavljuju na vašoj adresi, na primjer vasadomena.hr/cjenik/. Na WordPressu to radi naš dodatak, na statičnim stranicama postavka na poslužitelju. Vi ne mijenjate ništa na svom webu.'],
-          ['Kad promijenite cijenu', 'Prijavite se u portal s telefona: jedan ekran, popis vaših cijena, gumb "Objavi cjenik". Prijava ide poveznicom na e-mail, bez lozinke. Ako vam se ne da, javite nam promjenu i unosimo je mi.'],
-          ['Dalje ide samo', 'Trgovine se objavljuju svako jutro automatski, i vikendom. Usluge se objavljuju kad vi objavite. Svaka objava se trajno sprema i ostaje dostupna, ne samo 30 dana koliko propis traži.'],
-        ].map(([t, d], i) => (
-          <li class="flex flex-col gap-3.5 border-t-2 border-ink pt-5">
-            <div class="font-serif text-[15px] font-semibold text-accent">Korak {i + 1}</div>
-            <h3 class="font-sans text-[22px] leading-snug">{t}</h3>
-            <p class="text-ink-2">{d}</p>
-          </li>
-        ))}
-      </ol>
-      <div class="flex flex-col gap-4 rounded-lg bg-paper px-8 py-7 lg:flex-row lg:items-center lg:gap-8">
-        <div class="whitespace-nowrap font-semibold">Uz to dobivate</div>
-        <div class="flex flex-wrap gap-3">
-          {['Cjenik u PDF-u za pult', 'QR kod za vrata ili račun', 'Tablicu cijena za letke i oglase', 'Mjesečni sažetak objava e-mailom', 'Podsjetnik ako niste objavili promjenu'].map((t) => (
-            <span class="rounded-full border border-line bg-white px-4 py-2 text-[15px]">{t}</span>
-          ))}
+        <div class="anim-rise-3 flex flex-col gap-3.5">
+          <div class="flex items-center">
+            <div class="box-border flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-accent font-serif text-[26px] font-semibold text-accent">3</div>
+            <div class="ml-4 text-[13px] font-semibold uppercase tracking-wider text-accent">Dalje ide samo</div>
+          </div>
+          <h3 class="font-sans text-xl">Dalje održavamo mi</h3>
+          <p class="-mt-1 text-ink-2">Objave, arhiva, podsjetnici i prilagodba kad se propis promijeni.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Zašto na vašoj stranici -->
-  <section class="section">
-    <div class="container-x grid gap-8 lg:grid-cols-12">
-      <div class="flex flex-col gap-4 lg:col-span-5">
-        <p class="eyebrow">Razlika</p>
-        <h2 class="text-3xl sm:text-4xl">Zašto na vašoj stranici, a ne na tuđoj</h2>
-      </div>
-      <div class="prose-x text-lg text-ink-2 lg:col-span-7">
-        <p>Odluka govori o objavi cjenika na mrežnim stranicama trgovca. Postoje besplatna rješenja gdje se vaš cjenik nalazi na tuđoj domeni. Kod nas datoteke stoje na vašoj adresi, na vašem webu.</p>
-        <p>Ako do vašeg weba nemamo pristup, primjerice Wix, stara stranica bez održavanja ili agencija koja ne odgovara, možemo napraviti i varijantu s poveznicom na naš servis. Recimo odmah da je to slabija opcija: sidrene cijene uz svoje cijene tada upisujete sami. Prvo ćemo pokušati prvo rješenje.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Paketi -->
+  <!-- 4. Paketi -->
   <section id="paketi" class="section section-white scroll-mt-20">
-    <div class="container-x flex flex-col gap-10">
-      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <div class="flex max-w-[700px] flex-col gap-3">
-          <p class="eyebrow">Paketi i cijene</p>
-          <h2 class="text-3xl sm:text-4xl">Jednokratno uključenje i mjesečna pretplata</h2>
-        </div>
-        <p class="max-w-[380px] text-muted">Naplaćujemo rad, integraciju i odgovornost. Promjene cijena ne naplaćujemo ni u jednom paketu.</p>
-      </div>
+    <div class="container-x flex flex-col gap-7">
+      <h2 class="text-3xl sm:text-4xl">Jedno pitanje: tko mijenja cijene?</h2>
       <PriceCards />
-      <UkljucenjeIPretplata />
-      <p class="text-center"><a href="/paketi" class="font-semibold text-accent">Usporedba svega što je uključeno →</a></p>
+      <p class="text-center text-[15px]"><a href="/paketi" class="font-semibold text-accent">Detaljna usporedba svega uključenog →</a></p>
     </div>
   </section>
 
-  <!-- 8. Propis -->
-  <section class="section">
-    <div class="container-x grid gap-8 lg:grid-cols-12">
-      <div class="flex flex-col gap-4 lg:col-span-5">
-        <p class="eyebrow">Kad se propis promijeni</p>
-        <h2 class="text-3xl sm:text-4xl">Propis se mijenja, vaši podaci ostaju</h2>
+  <!-- 5. Zašto kod nas -->
+  <section class="container-x py-16 sm:py-20">
+    <div class="grid gap-10 rounded-2xl bg-ink px-7 py-10 text-paper sm:px-12 sm:py-14 lg:grid-cols-2 lg:gap-16">
+      <div class="flex flex-col gap-3 text-cream">
+        <svg class="anim-draw" width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M5 16L18 5l13 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14.5V31h18V14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 31v-8h6v8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <h2 class="text-2xl text-paper sm:text-[26px]">Na vašoj adresi, ne na tuđoj</h2>
+        <p class="text-cream">Besplatna rješenja drže cjenik na tuđoj domeni. Propis govori o objavi na vašim stranicama — kod nas datoteke stoje na vašoj adresi.</p>
       </div>
-      <div class="prose-x text-lg text-ink-2 lg:col-span-7">
-        <p>Odluke od 1. listopada uvedene su kao privremena mjera kontrole cijena i mogu se mijenjati. Pretplata vas pritom ne veže: možete je otkazati bilo kad, a već objavljene datoteke ostaju u arhivi.</p>
-        <p>Drugi dio propisa, izmjene Zakona o zaštiti potrošača, stupa na snagu 17. studenoga 2026. i uvodi trajnu obvezu objave cjenika. Način provedbe tek propisuje ministar pravilnikom. Sustav je građen tako da se format datoteka zamijeni bez ponovnog unosa vaših podataka: kad pravilnik izađe, prilagodbu radimo mi, unutar pretplate.</p>
+      <div class="flex flex-col gap-3 text-cream">
+        <svg class="anim-draw" width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 4l11 4v9c0 7-4.6 11.9-11 15C11.6 28.9 7 24 7 17V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13 18l3.5 3.5L24 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h2 class="text-2xl text-paper sm:text-[26px]">Propis se mijenja, vaši podaci ostaju</h2>
+        <p class="text-cream">Od 17. studenoga obveza postaje trajna, a pravila će se mijenjati. Prilagodbu radimo mi, unutar pretplate, bez ponovnog unosa.</p>
       </div>
     </div>
   </section>
 
-  <!-- 9. Mi / vi -->
-  <section class="section section-white">
-    <div class="container-x flex flex-col gap-10">
-      <div class="flex max-w-[760px] flex-col gap-3">
-        <p class="eyebrow">Podjela odgovornosti</p>
-        <h2 class="text-3xl sm:text-4xl">Što radimo mi, a što ostaje na vama</h2>
-      </div>
-      <div class="grid gap-6 md:grid-cols-2">
-        <div class="flex flex-col gap-4 rounded-xl bg-paper p-8">
-          <h3 class="text-[22px] text-accent">Mi</h3>
-          <ul class="flex flex-col text-lg text-ink-2">
-            {['Postavljanje sustava i spajanje s vašim webom', 'Izrada datoteka u traženom obliku i nazivu', 'Objava, arhiviranje i dostupnost datoteka', 'Prilagodba kad se propis promijeni'].map((t) => <li class="border-b border-line py-3 last:border-0">{t}</li>)}
-          </ul>
-        </div>
-        <div class="flex flex-col gap-4 rounded-xl bg-paper p-8">
-          <h3 class="text-[22px]">Vi</h3>
-          <ul class="flex flex-col text-lg text-ink-2">
-            {['Koje cijene ulaze u cjenik i jesu li točne', 'Koja je bila cijena na referentni datum', 'Isticanje sidrene cijene u lokalu i u oglasima', 'Procjena jeste li obveznik'].map((t) => <li class="border-b border-line py-3 last:border-0">{t}</li>)}
-          </ul>
-        </div>
-      </div>
-      <p class="max-w-[900px] text-muted">Nismo pravni savjetnici i ne jamčimo usklađenost vašeg poslovanja s propisom. Provodimo tehnički dio i vodimo evidenciju o tome što je i kada objavljeno.</p>
-    </div>
-  </section>
-
-  <!-- 10. Knjigovođe -->
-  <section class="container-x flex flex-col gap-6 py-14 sm:py-16 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
-    <div class="flex max-w-[760px] flex-col gap-2.5">
-      <p class="eyebrow">Za knjigovođe</p>
-      <h2 class="text-2xl sm:text-3xl">Imate klijente koji ovo moraju riješiti do 1. listopada?</h2>
-      <p class="text-lg text-ink-2">Postoji partnerski program: gotov tekst za vaše klijente i naknada po preporuci.</p>
-    </div>
-    <a href="/knjigovodje" class="btn-secondary whitespace-nowrap">Saznajte više</a>
-  </section>
-
-  <!-- 11. FAQ -->
+  <!-- 6. FAQ -->
   <section class="section section-white">
     <div class="container-x grid gap-10 lg:grid-cols-12">
-      <div class="flex flex-col gap-4 lg:col-span-4">
-        <p class="eyebrow">Česta pitanja</p>
-        <h2 class="text-3xl sm:text-4xl">Ono što nas obrtnici prvo pitaju</h2>
-        <p><a href="/pitanja" class="font-semibold">Sva pitanja i odgovori</a></p>
+      <div class="flex flex-col gap-4 lg:col-span-3">
+        <h2 class="text-3xl leading-tight">Tri najčešća pitanja</h2>
+        <p class="text-[15px]"><a href="/pitanja" class="font-semibold text-accent">Sva pitanja →</a></p>
       </div>
-      <dl class="lg:col-span-8">
+      <div class="grid gap-8 md:grid-cols-3 lg:col-span-9">
         {topFaq.map((q) => (
-          <div class="flex flex-col gap-2.5 border-b border-line py-6 last:border-0">
-            <dt class="text-xl font-semibold">{q.q}</dt>
-            <dd class="text-ink-2">{q.a}</dd>
+          <div class="flex flex-col gap-2.5 border-t-2 border-ink pt-4">
+            <h3 class="font-sans text-lg">{q.q}</h3>
+            <p class="text-[15.5px] text-ink-2">{q.a}</p>
           </div>
         ))}
-      </dl>
+      </div>
     </div>
   </section>
 
-  <!-- 12. Kontakt -->
+  <!-- 7. Kontakt -->
   <section id="kontakt" class="section scroll-mt-20">
     <div class="container-x grid gap-10 lg:grid-cols-12">
       <div class="flex flex-col gap-4 lg:col-span-5">
         <p class="eyebrow">Kontakt</p>
         <h2 class="text-3xl sm:text-4xl">Zatražite ponudu</h2>
-        <p class="text-lg text-ink-2">Javimo se u jednom radnom danu s ponudom i pitanjima o vašem webu. Ivanić-Grad i okolica: po potrebi dolazimo i na teren.</p>
+        <p class="text-lg text-ink-2">Odgovor u roku 24 sata. Ivanić-Grad i okolica: po potrebi dolazimo i na teren.</p>
         <address class="mt-3 flex flex-col gap-1 not-italic text-ink-2">
           <span class="font-semibold text-ink">Timis Digital d.o.o.</span>
           <span>Ivanićgradska ulica 33, 10310 Ivanić-Grad</span>

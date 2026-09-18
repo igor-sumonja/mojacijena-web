@@ -39,3 +39,23 @@ p { text-wrap: pretty; }
   .prose-x p + p { margin-top: 1rem; }
   .field { @apply h-12 w-full rounded-md border border-sand bg-white px-3.5 text-ink; }
 }
+
+/* Animacije: suptilne, jednokratne ili spore; poštuju prefers-reduced-motion. */
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes floaty { from { transform: translateY(0); } to { transform: translateY(-9px); } }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes draw { from { stroke-dashoffset: 130; } to { stroke-dashoffset: 0; } }
+
+@layer utilities {
+  .anim-float { animation: floaty 5s ease-in-out infinite alternate; }
+  .anim-dot { animation: pulse-dot 2.4s ease-in-out infinite; }
+  .anim-draw :is(path, rect, circle) { stroke-dasharray: 130; animation: draw 1.8s 0.3s ease-out both; }
+  @supports (animation-timeline: view()) {
+    .anim-rise { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+    .anim-rise-2 { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 50%; }
+    .anim-rise-3 { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 65%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-float, .anim-dot, .anim-rise, .anim-rise-2, .anim-rise-3, .anim-draw :is(path, rect, circle) { animation: none !important; }
+  }
+}

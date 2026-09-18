@@ -45,7 +45,7 @@ const djelatnosti = [
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
         status.className = 'rounded-md px-4 py-3 text-[15px] bg-accent text-paper';
-        status.textContent = 'Upit je poslan. Javljamo se u jednom radnom danu.';
+        status.textContent = 'Upit je poslan. Odgovaramo u roku 24 sata.';
         form.reset();
       } else {
         status.className = 'rounded-md px-4 py-3 text-[15px] bg-[#f3e4e0] text-[#7a2e1f]';
