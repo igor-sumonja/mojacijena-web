@@ -119,6 +119,13 @@ Ništa se ne regenerira: `App\Objave\JavniUrl` gradi sve javne URL-ove iz `confi
 
 Privremenu domenu **ne brisati odmah**; neka ostane dok korak 4 ne prođe, da postoji put natrag.
 
+## 3a. Statistika posjeta (Umami)
+
+Self-hosted Umami kao Coolify servis (Umami + PostgreSQL), domena `https://stat.mojacijena.hr`
+(A zapis `stat` → isti server, sivi oblak), interni port 3000, bez indeksiranja. Skripta je u
+`src/layouts/Base.astro` (samo `import.meta.env.PROD`), website-id u samoj skripti; bez kolačića.
+Zaštita podataka opisuje ovu obradu — ako se Umami ikad makne ili zamijeni, ažurirati i taj tekst.
+
 ## 4. Provjera nakon prebacivanja
 
 ```sh
