@@ -24,6 +24,6 @@ export const faq: Faq[] = [
   { grupa: 'Ugovor i plaćanje', q: 'Koliko traje uključenje?', a: 'Za uslužni obrt s uobičajenim brojem usluga obično jedan do dva dana od trenutka kad nam dostavite cjenik i pristup webu. Za trgovine ovisi o broju artikala.' },
   { grupa: 'Ugovor i plaćanje', q: 'Mogu li otkazati?', a: 'Da, pretplatu možete otkazati bilo kad. Datoteke koje su već objavljene ostaju u arhivi.' },
   { grupa: 'Ugovor i plaćanje', q: 'Što ako Vlada ukine obvezu?', a: 'Odluke od 1. listopada privremena su mjera i mogu biti ukinute. U tom slučaju pretplatu jednostavno otkažete, bilo kad i bez otkaznog roka. Imajte pritom na umu da izmjene Zakona o zaštiti potrošača od 17. studenoga 2026. uvode trajnu obvezu objave cjenika.' },
-  { grupa: 'Ugovor i plaćanje', q: 'Kako se plaća?', a: 'Uključenje po računu prije početka rada, pretplata mjesečno ili godišnje unaprijed. Kod godišnjeg plaćanja plaćate 10 mjeseci za 12.' },
+  { grupa: 'Ugovor i plaćanje', q: 'Kako se plaća?', a: 'Uključenje po računu prije početka rada. Pretplata se u pravilu plaća godišnje unaprijed, pa plaćate 10 mjeseci za 12 i imate jedan račun godišnje; tko želi, može plaćati i mjesečno.' },
   { grupa: 'Ugovor i plaćanje', q: 'Naplaćujete li po promjeni cijene?', a: 'Ne. Promjene su uključene u pretplatu, u svim paketima. Kod paketa Bez brige računamo pritom na uobičajen ritam promjena u uslužnom cjeniku; svakodnevno mijenjanje velikog broja artikala rješava se uvozom iz Excela ili CSV-a i individualnom ponudom.' },
 ];
