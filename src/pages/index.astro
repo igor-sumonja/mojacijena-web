@@ -111,7 +111,11 @@ const topFaq = faq.filter((q) => q.landing);
   <section id="paketi" class="section section-white scroll-mt-20">
     <div class="container-x flex flex-col gap-7">
       <h2 class="text-3xl sm:text-4xl">Jedno pitanje: tko mijenja cijene?</h2>
-      <PriceCards />
+      <PriceCards trgovineTraka={false} />
+      <div class="mx-auto max-w-[860px] rounded-lg border border-line bg-paper px-7 py-4 text-center text-[15px] leading-relaxed text-ink-2">
+        <span class="font-semibold text-ink">Uključenje</span> plaćate jednom — to je posao postavljanja: spajanje s vašom stranicom, unos svih stavki sa sidrenim cijenama i prva objava. <span class="font-semibold text-ink">Pretplata</span> drži sve urednim dalje: objave, arhiva, promjene bez naplate i prilagodba propisu.
+      </div>
+      <p class="text-center text-[14px] text-muted">Trgovina s više od stotinjak artikala? Radimo individualnu ponudu — <a href="/kontakt?paket=trgovina" class="font-semibold">javite nam se</a>.</p>
       <p class="text-center text-[15px]"><a href="/paketi" class="font-semibold text-accent">Detaljna usporedba svega uključenog →</a></p>
     </div>
   </section>
