@@ -53,8 +53,22 @@ export const paketi: Paket[] = [
       'Prilagodba kad se propis promijeni',
     ],
   },
+  {
+    id: 'novi-web',
+    naziv: 'Novi web + cjenik',
+    za: 'Za obrte bez weba ili sa zastarjelom stranicom, s cjenikom od prvog dana.',
+    ukljucenje: 449,
+    mjesecno: 29,
+    stavke: [
+      'Nova stranica na našem predlošku, do 5 stranica',
+      'Cjenik ugrađen od prvog dana',
+      'Hosting i domena uključeni u pretplatu',
+      'Sitne izmjene teksta bez naplate',
+      'Sve iz paketa Bez brige',
+    ],
+  },
 ];
 
-export const kombo = { naziv: 'Novi web + cjenik', ukljucenje: 449, mjesecno: 29 };
+export const noviWeb = paketi.find((p) => p.id === 'novi-web')!;
 
 export const eur = (n: number) => `${n} €`;

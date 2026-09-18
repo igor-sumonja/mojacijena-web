@@ -1,13 +1,13 @@
 ---
-import { paketi, kombo, eur } from '../data/paketi';
+import { paketi, eur } from '../data/paketi';
 ---
-<div class="grid gap-6 md:grid-cols-3">
+<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
   {paketi.map((p) => (
-    <div class={`relative flex flex-col gap-5 rounded-xl bg-white p-8 ${p.istaknut ? 'border-2 border-accent' : 'border border-line'}`}>
-      {p.istaknut && <div class="absolute -top-3.5 left-8 rounded bg-accent px-3 py-1 text-[13px] font-semibold uppercase tracking-wider text-paper">Najčešći izbor</div>}
+    <div class={`relative flex flex-col gap-5 rounded-xl bg-white p-7 ${p.istaknut ? 'border-2 border-accent' : 'border border-line'}`}>
+      {p.istaknut && <div class="absolute -top-3.5 left-7 rounded bg-accent px-3 py-1 text-[13px] font-semibold uppercase tracking-wider text-paper">Najčešći izbor</div>}
       <h3 class="text-2xl">{p.naziv}</h3>
       <p class="min-h-12 text-muted">{p.za}</p>
-      <div class="flex items-baseline gap-2"><span class="font-serif text-[44px] font-semibold leading-none">{eur(p.ukljucenje)}</span><span class="text-muted">uključenje</span></div>
+      <div class="flex items-baseline gap-2"><span class="font-serif text-4xl font-semibold leading-none">{eur(p.ukljucenje)}</span><span class="text-muted">uključenje</span></div>
       <div class="-mt-2 flex items-baseline gap-2"><span class="text-2xl font-semibold">+ {eur(p.mjesecno)}</span><span class="text-muted">mjesečno</span></div>
       <hr class="border-line" />
       <ul class="flex flex-col gap-2.5 text-ink-2">
@@ -16,14 +16,4 @@ import { paketi, kombo, eur } from '../data/paketi';
       <a href={`/kontakt?paket=${p.id}`} class={`mt-auto ${p.istaknut ? 'btn-primary' : 'btn-secondary'}`}>Zatražite ponudu</a>
     </div>
   ))}
-</div>
-<div class="mt-6 grid gap-6 md:grid-cols-2">
-  <div class="flex flex-col gap-3 rounded-lg bg-paper px-7 py-6 sm:flex-row sm:items-center sm:justify-between">
-    <div><div class="text-lg font-semibold">Nemate web ili vam je zastario?</div><div class="text-[15px] text-muted">Novi web s ugrađenim cjenikom. Isporuka od listopada.</div></div>
-    <div class="whitespace-nowrap font-semibold">{eur(kombo.ukljucenje)} + {eur(kombo.mjesecno)}/mj</div>
-  </div>
-  <div class="flex flex-col gap-3 rounded-lg bg-paper px-7 py-6 sm:flex-row sm:items-center sm:justify-between">
-    <div><div class="text-lg font-semibold">Želite sve sami?</div><div class="text-[15px] text-muted">Besplatan portal s cjenikom na našoj domeni, bez naše pomoći.</div></div>
-    <div class="whitespace-nowrap font-semibold">0 €</div>
-  </div>
 </div>
