@@ -79,7 +79,7 @@ Projekt `mojacijena`, okruženje `production` (isto gdje je i servis).
 
    `NODE_ENV`, `HOST` i `PORT` već postavlja Dockerfile i ne treba ih upisivati.
 
-7. **Automatic Deployment** uključen — GitHub App sama postavlja webhook, pa push na `master`
+7. **Automatic Deployment** uključen — GitHub App sama postavlja webhook, pa push na `main`
    okida deploy.
 
 ### Zamka specifična za ovaj resurs
@@ -145,9 +145,8 @@ Zatim, s jednim stvarnim klijentom u adminu:
 stranica koja duplira marketing web i može se indeksirati. PREDAJA §2 to već traži zatvoriti;
 izlaz je preusmjeriti `/` u `routes/web.php` servisa na `https://mojacijena.hr`.
 
-**Sitemap još ne postoji.** `robots.txt` pokazuje na `https://mojacijena.hr/sitemap.xml`, koji će
-vraćati 404 dok se ne doda `@astrojs/sitemap` (otvoreni zadatak 3 u `CLAUDE.md`). Crawleri to
-podnose, ali vrijedi zatvoriti prije nego stranica ode u indeks.
+**Sitemap postoji** (`@astrojs/sitemap`, generira `sitemap-index.xml` pri buildu) i
+`robots.txt` pokazuje na njega.
 
 **Indeksiranje privremene domene je zatvoreno**, ali samo dok se popis domena drži ažurnim.
 `src/pages/robots.txt.ts` gleda `Host` (odnosno `X-Forwarded-Host`) i dopušta indeksiranje samo na
