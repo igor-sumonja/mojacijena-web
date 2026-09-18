@@ -1,0 +1,16 @@
+---
+import Logo from './Logo.astro';
+---
+<footer class="border-t border-line">
+  <div class="container-x flex flex-col gap-4 py-9 text-[15px] text-muted sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+      <Logo size={22} />
+      <span>usluga Timis Digital d.o.o.</span>
+    </div>
+    <div class="flex flex-wrap gap-x-6 gap-y-2">
+      <a href="/uvjeti" class="text-muted no-underline hover:text-ink">Uvjeti usluge</a>
+      <a href="/privatnost" class="text-muted no-underline hover:text-ink">Zaštita podataka</a>
+      <a href="/impressum" class="text-muted no-underline hover:text-ink">Impressum</a>
+    </div>
+  </div>
+</footer>

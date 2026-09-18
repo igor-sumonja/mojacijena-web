@@ -1,0 +1,24 @@
+{
+  "name": "mojacijena-web",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9",
+    "@fontsource-variable/source-sans-3": "^5",
+    "@fontsource-variable/source-serif-4": "^5",
+    "@tailwindcss/vite": "^4",
+    "astro": "^5",
+    "nodemailer": "^7",
+    "tailwindcss": "^4"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6"
+  }
+}

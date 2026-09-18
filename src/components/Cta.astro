@@ -1,0 +1,13 @@
+---
+interface Props { title?: string; text?: string }
+const { title = 'Zatražite ponudu', text = 'Javimo se u jednom radnom danu s ponudom i pitanjima o vašem webu.' } = Astro.props;
+---
+<section class="container-x pb-16 sm:pb-20">
+  <div class="flex flex-col gap-5 rounded-2xl bg-ink px-7 py-10 text-paper sm:flex-row sm:items-center sm:justify-between sm:px-12">
+    <div class="flex flex-col gap-2">
+      <h2 class="text-2xl sm:text-3xl">{title}</h2>
+      <p class="text-cream">{text}</p>
+    </div>
+    <a href="/kontakt" class="btn bg-paper text-ink hover:bg-white">Pošaljite upit</a>
+  </div>
+</section>

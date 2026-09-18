@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+const koraci = [
+  { t: 'Provjerite odnosi li se obveza na vas', d: 'Obveza vrijedi za trgovce i pružatelje usluga koji imaju web stranicu. Ako web nemate, ne odnosi se na vas. Ako niste sigurni, pitajte knjigovođu ili HOK; mi to ne procjenjujemo.' },
+  { t: 'Utvrdite sidrenu cijenu za svaku uslugu ili artikl', d: 'To je cijena koja je vrijedila 10. rujna 2026., bez akcije i popusta. Za hranu, piće, kozmetiku, sredstva za čišćenje, toaletne potrepštine i kućanstvo to je cijena od 2. svibnja 2025. Za usluge ili artikle uvedene nakon tog datuma sidrena je prva cijena po kojoj ste ih ponudili.' },
+  { t: 'Sačuvajte dokaz o tim cijenama', d: 'Stari cjenik, letak, fotografija cjenika u lokalu, račun ili snimka web stranice iz tog vremena. Ako vas inspekcija pita odakle vam sidrena cijena, ovo je odgovor. Datum na dokazu je važniji od njegove ljepote.' },
+  { t: 'Istaknite sidrenu cijenu uz redovnu', d: 'U lokalu na cjeniku, polici ili etiketi; na webu uz svaku cijenu; u letcima i oglasima uz oglašenu cijenu. Oblik je slobodan, ali mora biti jasno, vidljivo i čitljivo, na primjer: "Šišanje 22,00 € (cijena 10. 9. 2026.: 20,00 €)".' },
+  { t: 'Objavite cjenik na svojoj web stranici u strojno čitljivom obliku', d: 'Datoteka u XML ili CSV obliku, javno dostupna bez prijave, s podacima koje propis traži: za usluge naziv, cijena i sidrena cijena; za robu još šifra, marka, jedinica mjere, cijena za jedinicu mjere, barkod i dostupnost. Ovo je dio koji obrtnici uglavnom ne mogu sami, i ovo radimo mi.' },
+  { t: 'Ažurirajte na vrijeme i čuvajte stare verzije', d: 'Trgovine objavljuju svaki dan do 8 ujutro, i kad se ništa nije promijenilo. Usluge objavljuju kod svake promjene cijene, do 8 ujutro na dan promjene. Objavljene datoteke moraju ostati dostupne najmanje 30 dana. U našem sustavu to ide automatski.' },
+  { t: 'Kod akcija pazite na još jednu cijenu', d: 'Za vrijeme sniženja uz akcijsku cijenu ističe se i najniža cijena koju ste primjenjivali u 30 dana prije akcije, po Zakonu o zaštiti potrošača. To nije isto što i sidrena cijena, koja stoji uvijek. Sustav vam tu cijenu računa sam.' },
+];
+---
+<Base title="Što točno morate napraviti" description="Vodič za obrtnike u sedam koraka: sidrena cijena, dokazi, isticanje, strojno čitljiv cjenik, rokovi i akcije. Bez žargona.">
+  <section class="container-x flex flex-col gap-4 py-16 sm:py-20">
+    <p class="eyebrow">Vodič za obrtnike</p>
+    <h1 class="max-w-[820px] text-4xl sm:text-5xl">Što točno morate napraviti do 1. listopada 2026.</h1>
+    <p class="max-w-[680px] text-lg text-ink-2">Sedam koraka, običnim jezikom. Prva četiri možete napraviti sami danas. Peti i šesti su tehnički i za njih postojimo mi.</p>
+  </section>
+
+  <section class="section section-white">
+    <div class="container-x">
+      <ol class="mx-auto flex max-w-[820px] flex-col">
+        {koraci.map((k, i) => (
+          <li class="grid gap-3 border-b border-line py-8 last:border-0 sm:grid-cols-[72px_1fr] sm:gap-6">
+            <div class="font-serif text-4xl font-semibold text-accent">{i + 1}</div>
+            <div class="flex flex-col gap-2.5">
+              <h2 class="font-sans text-2xl">{k.t}</h2>
+              <p class="text-lg text-ink-2">{k.d}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid gap-10 lg:grid-cols-12">
+      <div class="flex flex-col gap-4 lg:col-span-5">
+        <h2 class="text-3xl">Četiri cijene koje se lako pobrkaju</h2>
+        <p class="text-ink-2">Za artikl na akciji mogu istodobno postojati sve četiri. Sustav ih vodi odvojeno i prikazuje one koje postoje.</p>
+      </div>
+      <dl class="flex flex-col lg:col-span-7">
+        {[
+          ['Redovna cijena', 'Cijena po kojoj prodajete izvan akcije.'],
+          ['Akcijska cijena', 'Cijena za vrijeme sniženja ili druge posebne prodaje.'],
+          ['Najniža cijena u 30 dana', 'Najniža cijena koju ste primjenjivali u 30 dana prije akcije. Prikazuje se samo za vrijeme akcije. Od nje se računa postotak popusta.'],
+          ['Sidrena cijena', 'Cijena s 10. rujna 2026. (ili 2. svibnja 2025.). Ne mijenja se i prikazuje se uvijek, uz svaku cijenu.'],
+        ].map(([t, d]) => (
+          <div class="flex flex-col gap-1.5 border-b border-line py-5 last:border-0 sm:grid sm:grid-cols-[220px_1fr] sm:gap-6">
+            <dt class="font-semibold">{t}</dt><dd class="text-ink-2">{d}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container-x grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-5"><h2 class="text-3xl">Rokovi i kazne</h2></div>
+      <div class="prose-x text-lg text-ink-2 lg:col-span-7">
+        <p>Obje odluke objavljene su u Narodnim novinama 101/2026 i stupaju na snagu 1. listopada 2026. Izmjene Zakona o zaštiti potrošača, s trajnom obvezom objave cjenika, stupaju na snagu 17. studenoga 2026.; provedbeni pravilnik još nije objavljen.</p>
+        <p>Kazne po odlukama: od 3.000 do 30.000 eura za trgovca pravnu osobu i od 1.000 do 4.000 eura za odgovornu osobu.</p>
+        <p class="text-[15px] text-muted">Ovaj vodič je naše sažimanje propisa običnim jezikom, ne pravni savjet. Mjerodavni su tekstovi u Narodnim novinama: <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1213.html" rel="noopener">Odluka o objavi cjenika</a> i <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1212.html" rel="noopener">Odluka o isticanju dodatne cijene</a>.</p>
+      </div>
+    </div>
+  </section>
+  <Cta title="Prva četiri koraka radite vi, ostalo mi" text="Pošaljite nam cjenik i adresu web stranice; javimo se s ponudom u jednom radnom danu." />
+</Base>

@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<Base title="Za knjigovođe: partnerski program" description="Vaši klijenti vas prvi pitaju što s obvezom objave cjenika. Dajte im gotov odgovor i naknadu po preporuci.">
+  <section class="container-x grid gap-10 py-16 sm:py-20 lg:grid-cols-12">
+    <div class="flex flex-col gap-5 lg:col-span-7">
+      <p class="eyebrow">Za knjigovođe i knjigovodstvene servise</p>
+      <h1 class="text-4xl sm:text-5xl">Vaši klijenti vas prvi pitaju "što s ovim?"</h1>
+      <p class="text-lg text-ink-2">Od 1. listopada 2026. svaki vaš klijent s web stranicom mora na njoj objaviti strojno čitljiv cjenik i isticati sidrenu cijenu. Pitanje dolazi vama, a odgovor je tehnički, ne knjigovodstveni. Mi ga rješavamo umjesto vas: cjenik na klijentovom webu, sidrene cijene, održavanje i prilagodba kad se propis promijeni.</p>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container-x grid gap-6 md:grid-cols-3">
+      {[
+        ['Gotov tekst za klijente', 'E-mail i kratki dopis koje šaljete svojim klijentima, s objašnjenjem obveze običnim jezikom i našom ponudom. Vi ne pišete ništa.'],
+        ['Naknada po preporuci', '[IZNOS] € po svakom klijentu koji se uključi na vašu preporuku, ili popust na uključenje za vaše klijente. Birate vi.'],
+        ['Jedna kontakt osoba', 'Za sve vaše klijente jedan broj i jedan e-mail. Klijenta uključujemo u jedan do dva dana od dostave cjenika.'],
+      ].map(([t, d]) => (
+        <div class="flex flex-col gap-3 rounded-lg bg-paper p-8">
+          <h2 class="font-sans text-xl">{t}</h2>
+          <p class="text-ink-2">{d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-x grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-5"><h2 class="text-3xl">Što vaši klijenti dobivaju</h2></div>
+      <div class="prose-x text-lg text-ink-2 lg:col-span-7">
+        <p>Cjenik u XML i CSV obliku na vlastitoj domeni, sidrene cijene uz cijene na webu, portal za promjene s telefona, PDF i QR kod za lokal, tablicu cijena za oglase i trajnu arhivu svake objave, s evidencijom tko je, kada i što objavio. Kad inspekcija pita, sve je na jednom mjestu.</p>
+        <p>Ono što ne dobivaju: pravnu procjenu jesu li obveznici. To ostaje vama i HOK-u. Mi provodimo tehnički dio i to jasno pišemo u uvjetima usluge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container-x grid gap-10 lg:grid-cols-12">
+      <div class="flex flex-col gap-4 lg:col-span-5">
+        <h2 class="text-3xl">Dogovorimo suradnju</h2>
+        <p class="text-ink-2">Upišite naziv servisa i koliko klijenata otprilike ima web stranicu. Javimo se s tekstom za klijente i uvjetima suradnje.</p>
+      </div>
+      <div class="lg:col-span-7"><ContactForm paket="partner" /></div>
+    </div>
+  </section>
+</Base>

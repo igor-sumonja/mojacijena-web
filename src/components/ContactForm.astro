@@ -1,0 +1,61 @@
+---
+interface Props { paket?: string }
+const { paket = '' } = Astro.props;
+const djelatnosti = [
+  'Usluge (frizer, kozmetika, servis, terapija…)',
+  'Trgovina robom',
+  'Usluge i roba',
+  'Webshop',
+  'Nemam web, zanima me novi web s cjenikom',
+  'Knjigovođa, zanima me partnerski program',
+];
+---
+<form id="kontakt-forma" method="post" action="/api/kontakt" class="flex flex-col gap-5 rounded-xl border border-line bg-white p-6 sm:p-10">
+  <input type="hidden" name="paket" value={paket} />
+  <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div class="flex flex-col gap-1.5"><label for="ime" class="text-[15px] font-semibold">Ime i prezime</label><input id="ime" name="ime" type="text" required autocomplete="name" class="field" /></div>
+    <div class="flex flex-col gap-1.5"><label for="obrt" class="text-[15px] font-semibold">Naziv obrta ili tvrtke</label><input id="obrt" name="obrt" type="text" required autocomplete="organization" class="field" /></div>
+    <div class="flex flex-col gap-1.5"><label for="email" class="text-[15px] font-semibold">E-mail</label><input id="email" name="email" type="email" required autocomplete="email" class="field" /></div>
+    <div class="flex flex-col gap-1.5"><label for="web" class="text-[15px] font-semibold">Adresa vaše web stranice</label><input id="web" name="web" type="text" placeholder="www." autocomplete="url" class="field" /></div>
+  </div>
+  <div class="flex flex-col gap-1.5">
+    <label for="djelatnost" class="text-[15px] font-semibold">Čime se bavite</label>
+    <select id="djelatnost" name="djelatnost" class="field">{djelatnosti.map((d) => <option>{d}</option>)}</select>
+  </div>
+  <div class="flex flex-col gap-1.5"><label for="poruka" class="text-[15px] font-semibold">Poruka (nije obavezno)</label><textarea id="poruka" name="poruka" rows="4" class="field h-auto resize-none py-3"></textarea></div>
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="text-sm text-muted">Podatke koristimo samo za odgovor na upit.</p>
+    <button type="submit" class="btn-primary text-lg">Pošaljite upit</button>
+  </div>
+  <p id="forma-status" class="hidden rounded-md px-4 py-3 text-[15px]" role="status" aria-live="polite"></p>
+</form>
+<script>
+  const form = document.getElementById('kontakt-forma') as HTMLFormElement | null;
+  const status = document.getElementById('forma-status') as HTMLParagraphElement | null;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!status) return;
+    const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
+    btn.disabled = true;
+    status.className = 'rounded-md px-4 py-3 text-[15px] bg-paper text-ink-2';
+    status.textContent = 'Šaljemo…';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        status.className = 'rounded-md px-4 py-3 text-[15px] bg-accent text-paper';
+        status.textContent = 'Upit je poslan. Javljamo se u jednom radnom danu.';
+        form.reset();
+      } else {
+        status.className = 'rounded-md px-4 py-3 text-[15px] bg-[#f3e4e0] text-[#7a2e1f]';
+        status.textContent = data.error ?? 'Upit nije poslan. Pokušajte ponovno ili nam pišite na e-mail.';
+      }
+    } catch {
+      status.className = 'rounded-md px-4 py-3 text-[15px] bg-[#f3e4e0] text-[#7a2e1f]';
+      status.textContent = 'Nema veze s poslužiteljem. Pokušajte ponovno ili nam pišite na e-mail.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+</script>
