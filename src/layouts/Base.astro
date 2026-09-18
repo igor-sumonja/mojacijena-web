@@ -24,6 +24,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    {import.meta.env.PROD && <script is:inline defer src="https://stat.mojacijena.hr/script.js" data-website-id="34481537-600e-4a33-851b-2f56d16ba7fe"></script>}
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />
