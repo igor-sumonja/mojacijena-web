@@ -8,7 +8,7 @@ Marketing web za uslugu **Moja Cijena** (Timis Digital d.o.o.): strojno čitljiv
 - **Stranica ne smije obećati ništa što ne piše u SPEC.md aplikacije.** Nije u fazi 1 i ne spominje se: widget za ne‑WP webove, uvoz iz blagajne, automatska naplata pretplate, CNAME poddomena.
 - **Nikad ne obećavati usklađenost sa zakonom.** Formula je: „tehnički dio provodimo mi, za sadržaj cjenika odgovarate vi”. Ne pisati „bit ćete u skladu sa zakonom”.
 - WooCommerce shopovi nisu ciljni klijenti; stranica ih uljudno odbija.
-- Izrada ili preseljenje weba s ugrađenim cjenikom („Novi web + cjenik”) ravnopravan je paket, ne dodatak. Besplatni self-service više se ne nudi i nigdje se ne spominje. Trgovina nije standardni paket: iznad stotinjak artikala ide individualna ponuda, bez istaknute cijene.
+- Izrada ili preseljenje weba s ugrađenim cjenikom („Novi web + cjenik”) ravnopravan je paket, ne dodatak. Besplatni self-service više se ne nudi i nigdje se ne spominje. Trgovina nije standardni paket: iznad stotinjak artikala ide individualna ponuda, bez istaknute cijene. Jamstvo povrata uključenja i bilo kakvi povrati novca više se ne nude i ne spominju.
 - Treća varijanta isporuke (Wix, tuđi hosting) je slabija i tako se i opisuje; nikad kao ravnopravan paket.
 - Cijene i sadržaj paketa mijenjaju se **samo** u `src/data/paketi.ts`; FAQ samo u `src/data/faq.ts`.
 - Dizajn: tokeni u `src/styles/global.css` (`@theme`). Serif Source Serif 4 za naslove, Source Sans 3 za tekst, jedan akcent (`--color-accent`). Bez gradijenata, emojija, ilustracija; jedina „slika” je prikaz cjenika na webu klijenta u heroju.
@@ -23,7 +23,7 @@ Marketing web za uslugu **Moja Cijena** (Timis Digital d.o.o.): strojno čitljiv
 
 ## Otvoreni zadaci (redoslijed)
 
-1. Kad pravilnik uz ZZP izađe: ažurirati `vodic.astro`, `faq.ts` i sekciju „Jamstvo” na landingu.
+1. Kad pravilnik uz ZZP izađe: ažurirati `vodic.astro`, `faq.ts` i sekciju o propisu na landingu.
 2. Kad mail server za mojacijena.hr proradi: e-mail na kontaktu, landingu, u impressumu i `MAIL_TO` u Coolifyju prebaciti s igor@timis.digital na info@mojacijena.hr.
 3. Provjeriti iznos temeljnog kapitala u impressumu prema sudskom registru (upisano 3.318,07 €, preračun iz 25.000 kn).
 
