@@ -52,7 +52,9 @@ Dvije napomene:
 Projekt `mojacijena`, okruženje `production` (isto gdje je i servis).
 
 1. **+ New → Private Repository (with GitHub App)** — ista GitHub App veza kao servis.
-   Repo `igor-sumonja/mojacijena-web`, grana `master`.
+   Repo `igor-sumonja/mojacijena-web`, grana **`main`**.
+   Pozor: servis je na `master`, ovaj repo na `main`. Coolify u polju za granu nudi zadano
+   `main`, ali ako se prepiše po navici iz servisa, deploy padne na „branch not found“.
 2. **Build Pack: `Dockerfile`.** Ne Nixpacks. Dockerfile je u korijenu repoa i pinna
    `node:22-alpine`; Nixpacks bi birao svoju verziju Nodea i deploy ne bi bio ponovljiv.
 3. **Ports Exposes: `4321`.** Port Mappings ostaviti prazno — Traefik ide kroz Dockerovu mrežu,
