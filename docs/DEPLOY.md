@@ -43,9 +43,10 @@ Dvije napomene:
 
 - **Ako domena završi iza Cloudflarea, proxy (narančasti oblak) mora biti isključen** dok Coolify
   ne izda certifikat. Coolify traži Let's Encrypt preko HTTP-01, a proxy taj izazov presretne.
-- **SPF prije nego kontakt forma proradi.** Forma šalje s `MAIL_FROM=web@mojacijena.hr` preko
-  vlastitog SMTP-a; bez SPF zapisa za taj poslužitelj upiti klijenata idu u spam. Zapis se dodaje
-  tek kad se zna koji SMTP host se koristi.
+- **Mail za formu ne čeka mojacijena.hr.** Faza 1: forma šalje kroz postojeći timis.digital
+  SMTP (Hetzner), gdje SPF/DKIM već postoje — `MAIL_FROM` mora biti adresa na timis.digital.
+  Tek kad se `mojacijena.hr` doda kao mail domena, prelazi se na `info@mojacijena.hr` uz
+  vlastiti SPF/DKIM zapis.
 
 ## 2. Coolify resurs za Astro
 
@@ -69,13 +70,13 @@ Projekt `mojacijena`, okruženje `production` (isto gdje je i servis).
 
    | Varijabla | Vrijednost |
    | --- | --- |
-   | `SMTP_HOST` | host vlastitog mail servera |
+   | `SMTP_HOST` | Hetznerov mail host za timis.digital (npr. `mail.your-server.de`) |
    | `SMTP_PORT` | `587` |
    | `SMTP_SECURE` | `false` (`true` samo za port 465) |
-   | `SMTP_USER` | `web@mojacijena.hr` |
-   | `SMTP_PASS` | lozinka |
-   | `MAIL_FROM` | `web@mojacijena.hr` |
-   | `MAIL_TO` | adresa na koju stižu upiti |
+   | `SMTP_USER` | `igor@timis.digital` (ili zaseban `web@timis.digital`) |
+   | `SMTP_PASS` | lozinka sandučića |
+   | `MAIL_FROM` | ista adresa kao `SMTP_USER` (mora biti na timis.digital zbog SPF-a) |
+   | `MAIL_TO` | `igor@timis.digital` |
 
    `NODE_ENV`, `HOST` i `PORT` već postavlja Dockerfile i ne treba ih upisivati.
 
