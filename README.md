@@ -19,7 +19,7 @@ npm run build && npm start
 4. Environment variables (iz `.env.example`): `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`, `MAIL_TO`.
 5. Deploy. Health check: `GET /` → 200.
 
-Aplikacija (Laravel) ide zasebno na `app.mojacijena.hr`; ovaj web s njom ne dijeli ništa.
+Aplikacija (Laravel) ide zasebno na `cjenik.mojacijena.hr`; ovaj web s njom ne dijeli ništa.
 
 ## Gdje se što mijenja
 
@@ -38,6 +38,6 @@ Aplikacija (Laravel) ide zasebno na `app.mojacijena.hr`; ovaj web s njom ne dije
 - [ ] Upisati telefon i e-mail (adresa, OIB, IBAN su upisani); u impressumu još sud, MBS, temeljni kapital i član uprave
 - [ ] Uvjeti usluge, zaštita podataka, impressum
 - [ ] Iznos naknade po preporuci za knjigovođe
-- [ ] Odlučiti: link "Otvorite besplatni portal" na `/paketi` sada vodi na kontakt; kad portal bude javan, promijeniti na `https://app.mojacijena.hr/...`
+- [ ] Odlučiti: link "Otvorite besplatni portal" na `/paketi` sada vodi na kontakt; kad portal bude javan, promijeniti na `https://cjenik.mojacijena.hr/...`
 - [ ] SMTP podaci u Coolifyju
 - [ ] Provjeriti tekst u sekciji „Zašto na vašoj stranici” nakon što izađe pravilnik uz ZZP

@@ -1,6 +1,6 @@
 # CLAUDE.md – mojacijena.hr (marketing web)
 
-Marketing web za uslugu **Moja Cijena** (Timis Digital d.o.o.): strojno čitljivi cjenici i sidrene cijene na vlastitom webu klijenta, za hrvatske obrtnike i male trgovce. Astro 5, Tailwind 4, Node adapter, deploy na Coolify (Dockerfile). Laravel aplikacija je zaseban projekt na `app.mojacijena.hr`; njezin spec je `docs/SPEC.md` u tom repou i on kaže što sustav stvarno radi.
+Marketing web za uslugu **Moja Cijena** (Timis Digital d.o.o.): strojno čitljivi cjenici i sidrene cijene na vlastitom webu klijenta, za hrvatske obrtnike i male trgovce. Astro 5, Tailwind 4, Node adapter, deploy na Coolify (Dockerfile). Laravel aplikacija je zaseban projekt na `cjenik.mojacijena.hr` (glavni URL backenda, vidi docs/DEPLOY.md); njezin spec je `docs/SPEC.md` u tom repou i on kaže što sustav stvarno radi.
 
 ## Pravila za svaki zadatak
 
