@@ -23,7 +23,8 @@ Marketing web za uslugu **Moja Cijena** (Timis Digital d.o.o.): strojno čitljiv
 
 ## Otvoreni zadaci (redoslijed)
 
-1. Upisati kontakt podatke i iznos naknade za knjigovođe (placeholderi u uglatim zagradama).
-2. Napisati uvjete usluge, zaštitu podataka i impressum (uvjeti moraju sadržavati: tehnička provedba a ne pravni savjet, obveza klijenta da promjene javi na vrijeme, jamstvo povrata uključenja do 31. 12. 2026., otkaz bilo kad, DPA).
-3. Sitemap (`@astrojs/sitemap`) i OG slika.
-4. Kad pravilnik uz ZZP izađe: ažurirati `vodic.astro`, `faq.ts` i sekciju „Jamstvo” na landingu.
+1. Kad pravilnik uz ZZP izađe: ažurirati `vodic.astro`, `faq.ts` i sekciju „Jamstvo” na landingu.
+2. Kad mail server za mojacijena.hr proradi: e-mail na kontaktu, landingu, u impressumu i `MAIL_TO` u Coolifyju prebaciti s igor@timis.digital na info@mojacijena.hr.
+3. Provjeriti iznos temeljnog kapitala u impressumu prema sudskom registru (upisano 3.318,07 €, preračun iz 25.000 kn).
+
+Gotovo (rujan 2026.): kontakt podaci, naknada za knjigovođe (postotak, individualno), uvjeti usluge, zaštita podataka, impressum, sitemap + OG slika (`public/og.png`, generirana iz canvasa; kod promjene poruke izraditi novu).
