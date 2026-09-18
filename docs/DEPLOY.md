@@ -145,6 +145,15 @@ Zatim, s jednim stvarnim klijentom u adminu:
 stranica koja duplira marketing web i može se indeksirati. PREDAJA §2 to već traži zatvoriti;
 izlaz je preusmjeriti `/` u `routes/web.php` servisa na `https://mojacijena.hr`.
 
-**Sitemap još ne postoji.** `public/robots.txt` pokazuje na `https://mojacijena.hr/sitemap.xml`,
-koji će vraćati 404 dok se ne doda `@astrojs/sitemap` (otvoreni zadatak 3 u `CLAUDE.md`).
-Crawleri to podnose, ali vrijedi zatvoriti prije nego stranica ode u indeks.
+**Sitemap još ne postoji.** `robots.txt` pokazuje na `https://mojacijena.hr/sitemap.xml`, koji će
+vraćati 404 dok se ne doda `@astrojs/sitemap` (otvoreni zadatak 3 u `CLAUDE.md`). Crawleri to
+podnose, ali vrijedi zatvoriti prije nego stranica ode u indeks.
+
+**Indeksiranje privremene domene je zatvoreno**, ali samo dok se popis domena drži ažurnim.
+`src/pages/robots.txt.ts` gleda `Host` (odnosno `X-Forwarded-Host`) i dopušta indeksiranje samo na
+`mojacijena.hr` i `www.mojacijena.hr`; svemu ostalom vraća `Disallow: /`. Trebalo je, jer privremena
+adresa nije tajna: certifikat za nju Let's Encrypt objavi u javne Certificate Transparency logove
+čim ga izda — `penpot.apps.timis.cloud` i `solarko.apps.timis.cloud` već stoje u `crt.sh`.
+
+**Ako se ikad doda još koja prava domena, mora ući u `PRAVE_DOMENE` u toj datoteci**, inače će
+stranica sama sebi zabraniti indeksiranje, i to tiho.
