@@ -2,45 +2,53 @@
 import Base from '../layouts/Base.astro';
 import PriceCards from '../components/PriceCards.astro';
 import Cta from '../components/Cta.astro';
-import { paketi, noviWeb, eur } from '../data/paketi';
+import { paketi, noviWeb, trgovine, eur } from '../data/paketi';
 
 const redovi: [string, (boolean | string)[]][] = [
-  ['Cjenik u XML i CSV obliku, na vašoj domeni', [true, true, true, true]],
-  ['Sidrene cijene uz cijene na vašem webu', [true, true, true, true]],
-  ['Unos početnog cjenika i spremanje dokaza', [true, true, true, true]],
-  ['Portal za promjene s telefona, bez lozinke', [true, true, true, true]],
-  ['Trajna arhiva svih objava', [true, true, true, true]],
-  ['PDF cjenik za pult i QR kod', [true, true, true, true]],
-  ['Prilagodba kad se propis promijeni', [true, true, true, true]],
-  ['Promjene javljate porukom, mi unosimo', [false, true, true, true]],
-  ['Objava isti dan nakon vaše poruke', [false, true, true, true]],
-  ['Mjesečni izvještaj o objavama', [false, true, true, true]],
-  ['Tablica cijena za letke i oglase', [false, true, true, true]],
-  ['Automatska objava svako jutro, i vikendom', [false, false, true, false]],
-  ['Više prodajnih objekata', [false, false, true, false]],
-  ['Uvoz artikala iz Excela ili CSV-a', [false, false, true, false]],
-  ['Akcije s najnižom cijenom u 30 dana', [false, false, true, false]],
-  ['Izrada nove web stranice, do 5 stranica', [false, false, false, true]],
-  ['Hosting i domena', [false, false, false, true]],
-  ['Sitne izmjene teksta na stranici', [false, false, false, true]],
+  ['Cjenik u XML i CSV obliku, na vašoj domeni', [true, true, true]],
+  ['Sidrene cijene uz cijene na vašem webu', [true, true, true]],
+  ['Unos početnog cjenika i spremanje dokaza', [true, true, true]],
+  ['Portal za promjene s telefona, bez lozinke', [true, true, true]],
+  ['Trajna arhiva svih objava', [true, true, true]],
+  ['PDF cjenik za pult i QR kod', [true, true, true]],
+  ['Prilagodba kad se propis promijeni', [true, true, true]],
+  ['Promjene javljate porukom, mi unosimo', [false, true, true]],
+  ['Objava isti dan nakon vaše poruke', [false, true, true]],
+  ['Mjesečni izvještaj o objavama', [false, true, true]],
+  ['Tablica cijena za letke i oglase', [false, true, true]],
+  ['Izrada nove web stranice, do 5 stranica', [false, false, true]],
+  ['Hosting i domena', [false, false, true]],
+  ['Sitne izmjene teksta na stranici', [false, false, true]],
 ];
 ---
-<Base title="Paketi i cijene" description="Jednokratno uključenje i mjesečna pretplata. Tri paketa za postojeće web stranice i izrada novog weba s ugrađenim cjenikom.">
+<Base title="Paketi i cijene" description="Jednokratno uključenje i mjesečna pretplata. Dva paketa za postojeće web stranice, izrada novog weba s ugrađenim cjenikom i individualna ponuda za veće trgovine.">
   <section class="container-x flex flex-col gap-4 py-16 sm:py-20">
     <p class="eyebrow">Paketi i cijene</p>
     <h1 class="max-w-[800px] text-4xl sm:text-5xl">Jednokratno uključenje i mjesečna pretplata</h1>
-    <p class="max-w-[680px] text-lg text-ink-2">Broj stavki nije ograničen ni u jednom paketu. Naplaćujemo rad, integraciju i odgovornost, ne broj redaka u cjeniku. Sve cijene su bez PDV-a.</p>
+    <p class="max-w-[680px] text-lg text-ink-2">Naplaćujemo rad, integraciju i odgovornost. Promjene cijena ne naplaćujemo ni u jednom paketu. Sve cijene su bez PDV-a.</p>
   </section>
 
   <section class="section section-white">
-    <div class="container-x"><PriceCards /></div>
+    <div class="container-x flex flex-col gap-12">
+      <PriceCards trgovineTraka={false} />
+      <div class="grid gap-8 border-t border-line pt-10 lg:grid-cols-2">
+        <div class="flex flex-col gap-3">
+          <h2 class="text-2xl">Što plaćate kod uključenja</h2>
+          <p class="text-ink-2">Uključenje je jednokratni posao kojim vaš cjenik prvi put dovedemo u red: spojimo sustav s vašom web stranicom, unesemo sve usluge ili artikle s cijenama i sidrenim cijenama, spremimo dokaze o cijenama i objavimo prvi cjenik u obliku koji propis traži. To je najveći dio posla i plaća se jednom, prije početka rada.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h2 class="text-2xl">Što pokriva pretplata</h2>
+          <p class="text-ink-2">Da sve to ostane uredno i sutra: objave i trajna arhiva kao dokaz da je cjenik bio dostupan, promjene cijena bez naplate, prilagodba kad se propis promijeni i netko koga možete nazvati kad nešto nije jasno.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="section">
     <div class="container-x flex flex-col gap-8">
       <h2 class="text-3xl">Što je točno uključeno</h2>
       <div class="overflow-x-auto">
-        <table class="w-full min-w-[860px] border-collapse text-left">
+        <table class="w-full min-w-[720px] border-collapse text-left">
           <thead>
             <tr class="border-b-2 border-ink">
               <th class="py-3 pr-4 font-semibold">Stavka</th>
@@ -64,6 +72,11 @@ const redovi: [string, (boolean | string)[]][] = [
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="flex flex-col gap-3 rounded-lg border border-line bg-white px-7 py-6">
+        <div class="text-lg font-semibold">{trgovine.naslov}</div>
+        <p class="max-w-[760px] text-ink-2">{trgovine.tekst}</p>
+        <a href="/kontakt?paket=trgovina" class="btn-secondary self-start">Zatražite individualnu ponudu</a>
       </div>
     </div>
   </section>

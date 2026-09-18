@@ -8,7 +8,7 @@ Marketing web za uslugu **Moja Cijena** (Timis Digital d.o.o.): strojno čitljiv
 - **Stranica ne smije obećati ništa što ne piše u SPEC.md aplikacije.** Nije u fazi 1 i ne spominje se: widget za ne‑WP webove, uvoz iz blagajne, automatska naplata pretplate, CNAME poddomena.
 - **Nikad ne obećavati usklađenost sa zakonom.** Formula je: „tehnički dio provodimo mi, za sadržaj cjenika odgovarate vi”. Ne pisati „bit ćete u skladu sa zakonom”.
 - WooCommerce shopovi nisu ciljni klijenti; stranica ih uljudno odbija.
-- Izrada ili preseljenje weba s ugrađenim cjenikom („Novi web + cjenik”) ravnopravan je četvrti paket, ne dodatak. Besplatni self-service više se ne nudi i nigdje se ne spominje.
+- Izrada ili preseljenje weba s ugrađenim cjenikom („Novi web + cjenik”) ravnopravan je paket, ne dodatak. Besplatni self-service više se ne nudi i nigdje se ne spominje. Trgovina nije standardni paket: iznad stotinjak artikala ide individualna ponuda, bez istaknute cijene.
 - Treća varijanta isporuke (Wix, tuđi hosting) je slabija i tako se i opisuje; nikad kao ravnopravan paket.
 - Cijene i sadržaj paketa mijenjaju se **samo** u `src/data/paketi.ts`; FAQ samo u `src/data/faq.ts`.
 - Dizajn: tokeni u `src/styles/global.css` (`@theme`). Serif Source Serif 4 za naslove, Source Sans 3 za tekst, jedan akcent (`--color-accent`). Bez gradijenata, emojija, ilustracija; jedina „slika” je prikaz cjenika na webu klijenta u heroju.

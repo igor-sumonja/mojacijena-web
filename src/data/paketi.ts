@@ -6,6 +6,7 @@ export type Paket = {
   mjesecno: number;
   istaknut?: boolean;
   stavke: string[];
+  napomena?: string;
 };
 
 // Cijene: sredina raspona iz poslovne analize. Mijenjaj samo ovdje.
@@ -38,20 +39,7 @@ export const paketi: Paket[] = [
       'Prilagodba kad se propis promijeni',
       'Tablica cijena za letke i oglase',
     ],
-  },
-  {
-    id: 'trgovina',
-    naziv: 'Trgovina',
-    za: 'Za trgovine robom s dnevnom objavom i više artikala.',
-    ukljucenje: 349,
-    mjesecno: 49,
-    stavke: [
-      'Automatska objava svako jutro',
-      'Više prodajnih objekata',
-      'Uvoz artikala iz Excela ili CSV-a',
-      'Akcije s najnižom cijenom u 30 dana',
-      'Prilagodba kad se propis promijeni',
-    ],
+    napomena: 'Računamo na uobičajen ritam promjena u uslužnom cjeniku. Svakodnevno mijenjanje velikog broja cijena posao je za individualnu ponudu.',
   },
   {
     id: 'novi-web',
@@ -70,5 +58,12 @@ export const paketi: Paket[] = [
 ];
 
 export const noviWeb = paketi.find((p) => p.id === 'novi-web')!;
+
+// Trgovine s robom nemaju standardni paket; iznad stotinjak artikala ide individualna ponuda.
+export const trgovine = {
+  naslov: 'Prodajete robu?',
+  kratko: 'Za trgovine s više od stotinjak artikala radimo individualnu ponudu.',
+  tekst: 'Manja trgovina, do stotinjak artikala, stane u gornje pakete; cjenik se tada objavljuje automatski svako jutro, i vikendom. Za veće trgovine, više prodajnih objekata, uvoz artikala iz Excela ili CSV-a i vođenje akcija radimo individualnu ponudu prema opsegu posla.',
+};
 
 export const eur = (n: number) => `${n} €`;
