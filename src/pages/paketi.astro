@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PriceCards from '../components/PriceCards.astro';
+import UkljucenjeIPretplata from '../components/UkljucenjeIPretplata.astro';
 import Cta from '../components/Cta.astro';
 import { paketi, noviWeb, trgovine, eur } from '../data/paketi';
 
@@ -31,16 +32,7 @@ const redovi: [string, (boolean | string)[]][] = [
   <section class="section section-white">
     <div class="container-x flex flex-col gap-12">
       <PriceCards trgovineTraka={false} />
-      <div class="grid gap-8 border-t border-line pt-10 lg:grid-cols-2">
-        <div class="flex flex-col gap-3">
-          <h2 class="text-2xl">Što plaćate kod uključenja</h2>
-          <p class="text-ink-2">Uključenje je jednokratni posao kojim vaš cjenik prvi put dovedemo u red: spojimo sustav s vašom web stranicom, unesemo sve usluge ili artikle s cijenama i sidrenim cijenama, spremimo dokaze o cijenama i objavimo prvi cjenik u obliku koji propis traži. To je najveći dio posla i plaća se jednom, prije početka rada.</p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <h2 class="text-2xl">Što pokriva pretplata</h2>
-          <p class="text-ink-2">Da sve to ostane uredno i sutra: objave i trajna arhiva kao dokaz da je cjenik bio dostupan, promjene cijena bez naplate, prilagodba kad se propis promijeni i netko koga možete nazvati kad nešto nije jasno.</p>
-        </div>
-      </div>
+      <UkljucenjeIPretplata />
     </div>
   </section>
 
