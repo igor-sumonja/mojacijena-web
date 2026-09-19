@@ -24,6 +24,6 @@ export const faq: Faq[] = [
   { grupa: 'Ugovor i plaćanje', q: 'Koliko traje postavljanje cjenika?', a: 'Za uslužni obrt s uobičajenim brojem usluga obično jedan do dva dana od trenutka kad nam dostavite cjenik i pristup webu. Za trgovine ovisi o broju artikala.' },
   { grupa: 'Ugovor i plaćanje', q: 'Mogu li otkazati?', a: 'Da, obnovu možete otkazati bilo kad. Datoteke koje su već objavljene ostaju u arhivi.' },
   { grupa: 'Ugovor i plaćanje', q: 'Što ako Vlada ukine obvezu?', a: 'Odluke od 1. listopada privremena su mjera i mogu biti ukinute. U tom slučaju obnovu jednostavno ne produžite, bilo kad i bez otkaznog roka. Imajte pritom na umu da izmjene Zakona o zaštiti potrošača od 17. studenoga 2026. uvode trajnu obvezu objave cjenika za trgovce; za pružatelje usluga opseg te trajne obveze tek treba potvrditi provedbeni pravilnik.' },
-  { grupa: 'Ugovor i plaćanje', q: 'Kako se plaća?', a: 'Godišnji iznos plaća se po računu, unaprijed, jedan račun godišnje; tko želi, može plaćati i mjesečno. Sve cijene su bez PDV-a.' },
+  { grupa: 'Ugovor i plaćanje', q: 'Kako se plaća?', a: 'Godišnji iznos plaća se po računu, unaprijed, jedan račun godišnje. Nudimo samo godišnju pretplatu. Sve cijene su bez PDV-a.' },
   { grupa: 'Ugovor i plaćanje', q: 'Naplaćujete li po promjeni cijene?', a: 'Ne. Promjene cijena uključene su u svaki plaćeni paket. Uz dodatak „Promjene unosimo mi” računamo na uobičajen ritam promjena u uslužnom cjeniku; svakodnevno mijenjanje velikog broja artikala rješava se uvozom iz Excela ili CSV-a i individualnom ponudom.' },
 ];
