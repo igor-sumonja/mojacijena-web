@@ -1,18 +1,31 @@
 ---
-import { paketi, uSvakomPaketu, eur } from '../data/paketi';
+import { paketi, besplatno, dodatakPromjene, uSvakomPlacenomPaketu, eur } from '../data/paketi';
 interface Props { trgovineTraka?: boolean }
 const { trgovineTraka = true } = Astro.props;
 const ikone: Record<string, string> = {
+  'besplatno': '<rect x="6" y="8" width="24" height="22" rx="3" stroke="currentColor" stroke-width="2"/><path d="M6 14h24M12 4v6M24 4v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 21h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
   'na-vasem-webu': '<rect x="11" y="3" width="14" height="30" rx="3" stroke="currentColor" stroke-width="2"/><path d="M16 28h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
-  'bez-brige': '<path d="M7 6h22a3 3 0 013 3v11a3 3 0 01-3 3H18l-7 6v-6H7a3 3 0 01-3-3V9a3 3 0 013-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M11 12.5h14M11 17.5h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
   'novi-web': '<circle cx="18" cy="18" r="14" stroke="currentColor" stroke-width="2"/><path d="M4 18h28M18 4c5 4.5 5 23.5 0 28-5-4.5-5-23.5 0-28z" stroke="currentColor" stroke-width="2"/>',
 };
 ---
 <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-[15px] text-ink-2">
-  <span class="font-semibold text-ink">U svakom paketu:</span>
-  {uSvakomPaketu.map((t) => <span class="flex items-center gap-1.5"><span class="font-semibold text-accent" aria-hidden="true">✓</span>{t}</span>)}
+  <span class="font-semibold text-ink">U svakom plaćenom paketu:</span>
+  {uSvakomPlacenomPaketu.map((t) => <span class="flex items-center gap-1.5"><span class="font-semibold text-accent" aria-hidden="true">✓</span>{t}</span>)}
 </div>
 <div class="mt-7 grid gap-6 md:grid-cols-3">
+  <!-- Besplatno: jasno lakša kartica, ne ravnopravan paket -->
+  <div class="flex flex-col gap-4 rounded-xl border border-line bg-paper p-7">
+    <div class="flex items-center gap-3 text-muted">
+      <svg width="30" height="30" viewBox="0 0 36 36" fill="none" aria-hidden="true"><Fragment set:html={ikone['besplatno']} /></svg>
+      <h3 class="text-2xl text-ink">{besplatno.naslovKartice}</h3>
+    </div>
+    <p class="min-h-[76px] text-ink-2">{besplatno.recenica}</p>
+    <div class="flex items-baseline gap-2"><span class="font-serif text-[40px] font-semibold leading-none">0 €</span><span class="text-muted">trajno</span></div>
+    <div class="text-[13px] text-muted">{besplatno.naziv}</div>
+    <p class="text-[13px] leading-snug text-muted">{besplatno.ograda}</p>
+    <a href="/kontakt?paket=besplatno" class="mt-auto btn-secondary">Zatražite besplatan pristup</a>
+  </div>
+
   {paketi.map((p) => (
     <div class={`relative flex flex-col gap-4 rounded-xl bg-white p-7 ${p.istaknut ? 'border-2 border-accent' : 'border border-line'}`}>
       {p.istaknut && <div class="absolute -top-3.5 left-7 rounded bg-accent px-3 py-1 text-[13px] font-semibold uppercase tracking-wider text-paper">Najčešći izbor</div>}
@@ -21,12 +34,18 @@ const ikone: Record<string, string> = {
         <h3 class="text-2xl text-ink">{p.naslovKartice}</h3>
       </div>
       <p class="min-h-[76px] text-ink-2">{p.recenica}</p>
-      <div class="flex items-baseline gap-2"><span class="font-serif text-[40px] font-semibold leading-none">{eur(p.ukljucenje)}</span><span class="text-muted">jednom</span></div>
-      <div class="-mt-2 flex items-baseline gap-2"><span class="text-[21px] font-semibold">+ {eur(p.mjesecno)}</span><span class="text-muted">mjesečno</span></div>
+      <div class="flex items-baseline gap-2"><span class="font-serif text-[40px] font-semibold leading-none">{eur(p.prvaGodina)}</span><span class="text-muted">prve godine</span></div>
+      <div class="-mt-2 flex items-baseline gap-2"><span class="text-[21px] font-semibold">{eur(p.obnova)}</span><span class="text-muted">svake sljedeće</span></div>
       <div class="text-[13px] text-muted">Paket „{p.naziv}”</div>
+      {p.istaknut && (
+        <p class="rounded-lg bg-paper-2 px-4 py-3 text-[13px] leading-snug text-ink-2">
+          <span class="font-semibold text-ink">Dodatak „{dodatakPromjene.naziv}” + {eur(dodatakPromjene.cijenaGod)}/god.</span> {dodatakPromjene.opis}
+        </p>
+      )}
       {p.napomena && <p class="text-[13px] leading-snug text-muted">{p.napomena}</p>}
-      <a href={`/kontakt?paket=${p.id}`} class={`mt-auto ${p.istaknut ? 'btn-primary' : 'btn-secondary'}`}>Zatražite ponudu</a>
+      <a href={`/kontakt?paket=${p.id}`} class={`mt-auto ${p.istaknut ? 'btn-primary' : 'btn-secondary'}`}>Naručite</a>
     </div>
   ))}
 </div>
-{trgovineTraka && <p class="mt-7 text-center text-[14px] text-muted">Trgovina s više od stotinjak artikala? Radimo individualnu ponudu — <a href="/kontakt?paket=trgovina" class="font-semibold">javite nam se</a>.</p>}
+<p class="mt-4 text-[13px] text-muted">Svi iznosi su bez PDV-a. Godišnji iznos, jedan račun; može i mjesečno.</p>
+{trgovineTraka && <p class="mt-3 text-center text-[14px] text-muted">Trgovina s više od stotinjak artikala? Radimo individualnu ponudu — <a href="/kontakt?paket=trgovina" class="font-semibold">javite nam se</a>.</p>}

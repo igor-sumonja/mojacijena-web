@@ -41,7 +41,7 @@ const topFaq = faq.filter((q) => q.landing);
             ))}
           </dl>
           <div class="mt-1 flex flex-wrap gap-2.5">
-            {['latest.csv', 'latest.xml', 'cjenik.pdf'].map((f) => <span class="rounded border border-accent px-2.5 py-1 text-[13px] font-semibold text-accent">{f}</span>)}
+            {['Datoteka koju računalo čita', 'PDF za ispis'].map((f) => <span class="rounded border border-accent px-2.5 py-1 text-[13px] font-semibold text-accent">{f}</span>)}
           </div>
           <p class="flex items-center gap-2 text-xs text-muted"><span class="anim-dot inline-block h-2 w-2 rounded-full bg-accent"></span>Zadnja objava: 1. 10. 2026. u 06:30. Arhiva svih objava.</p>
         </div>
@@ -62,7 +62,7 @@ const topFaq = faq.filter((q) => q.landing);
         <div class="anim-rise-2 flex flex-col gap-3 text-accent">
           <svg class="anim-draw" width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="7.5" r="3" stroke="currentColor" stroke-width="2"/><path d="M18 10.5V31M8 22c1.2 5.6 5.6 8 10 8s8.8-2.4 10-8M11.5 15.5h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <h2 class="text-[21px] text-ink">Sidrena cijena uz svaku cijenu</h2>
-          <p class="text-ink-2">Cijena od 10. rujna 2026., istaknuta uz redovnu. Za hranu, piće, kozmetiku i kućanstvo vrijedi 2. svibnja 2025.</p>
+          <p class="text-ink-2">Cijena od 10. rujna 2026., istaknuta uz redovnu. Sustav je pamti i prikazuje sam.</p>
         </div>
         <div class="anim-rise-3 flex flex-col gap-3 text-accent">
           <svg class="anim-draw" width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden="true"><circle cx="18" cy="18" r="13" stroke="currentColor" stroke-width="2"/><path d="M18 11v7l5 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -70,7 +70,7 @@ const topFaq = faq.filter((q) => q.landing);
           <p class="text-ink-2">Usluge kod svake promjene, trgovine svako jutro do 8:00. Objave ostaju dostupne 30 dana.</p>
         </div>
       </div>
-      <p class="text-[15px] text-muted">Za nepoštivanje su propisane kazne od 3.000 do 30.000 eura za trgovca i od 1.000 do 4.000 eura za odgovornu osobu. Izvori: <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1213.html" rel="noopener">Odluka o objavi cjenika</a> i <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1212.html" rel="noopener">Odluka o isticanju dodatne cijene</a>, NN 101/2026.</p>
+      <p class="text-[15px] text-muted">Za nepoštivanje su Zakonom o iznimnim mjerama kontrole cijena (čl. 20) propisane kazne: za obrtnika od 1.000 do 20.000 eura, za tvrtku od 3.000 do 30.000 eura. Izvori: <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1213.html" rel="noopener">Odluka o objavi cjenika</a> i <a href="https://narodne-novine.nn.hr/clanci/sluzbeni/2026_09_101_1212.html" rel="noopener">Odluka o isticanju dodatne cijene</a>, NN 101/2026.</p>
     </div>
   </section>
 
@@ -110,10 +110,10 @@ const topFaq = faq.filter((q) => q.landing);
   <!-- 4. Paketi -->
   <section id="paketi" class="section section-white scroll-mt-20">
     <div class="container-x flex flex-col gap-7">
-      <h2 class="text-3xl sm:text-4xl">Jedno pitanje: tko mijenja cijene?</h2>
+      <h2 class="text-3xl sm:text-4xl">Tri načina da to riješite</h2>
       <PriceCards trgovineTraka={false} />
       <div class="mx-auto max-w-[860px] rounded-lg border border-line bg-paper px-7 py-4 text-center text-[15px] leading-relaxed text-ink-2">
-        <span class="font-semibold text-ink">Uključenje</span> plaćate jednom — to je posao postavljanja: spajanje s vašom stranicom, unos svih stavki sa sidrenim cijenama i prva objava. <span class="font-semibold text-ink">Pretplata</span> drži sve urednim dalje: objave, arhiva, promjene bez naplate i prilagodba propisu.
+        <span class="font-semibold text-ink">Prva godina</span> uključuje postavljanje: spajanje s vašom stranicom, unos svih stavki sa sidrenim cijenama i prvu objavu. <span class="font-semibold text-ink">Obnova</span> drži sve urednim dalje: objave, arhiva i promjene cijena bez naplate.
       </div>
       <p class="text-center text-[14px] text-muted">Trgovina s više od stotinjak artikala? Radimo individualnu ponudu — <a href="/kontakt?paket=trgovina" class="font-semibold">javite nam se</a>.</p>
       <p class="text-center text-[15px]"><a href="/paketi" class="font-semibold text-accent">Detaljna usporedba svega uključenog →</a></p>
@@ -126,12 +126,12 @@ const topFaq = faq.filter((q) => q.landing);
       <div class="flex flex-col gap-3 text-cream">
         <svg class="anim-draw" width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M5 16L18 5l13 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14.5V31h18V14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 31v-8h6v8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
         <h2 class="text-2xl text-paper sm:text-[26px]">Na vašoj adresi, ne na tuđoj</h2>
-        <p class="text-cream">Besplatna rješenja drže cjenik na tuđoj domeni. Propis govori o objavi na vašim stranicama — kod nas datoteke stoje na vašoj adresi.</p>
+        <p class="text-cream">Propis govori o objavi na vašim mrežnim stranicama. Kod nas cjenik i arhiva stoje na vašoj domeni, a ne kao poveznica na tuđi servis.</p>
       </div>
       <div class="flex flex-col gap-3 text-cream">
         <svg class="anim-draw" width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 4l11 4v9c0 7-4.6 11.9-11 15C11.6 28.9 7 24 7 17V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13 18l3.5 3.5L24 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h2 class="text-2xl text-paper sm:text-[26px]">Propis se mijenja, vaši podaci ostaju</h2>
-        <p class="text-cream">Od 17. studenoga obveza postaje trajna, a pravila će se mijenjati. Prilagodbu radimo mi, unutar pretplate, bez ponovnog unosa.</p>
+        <p class="text-cream">Od 17. studenoga obveza za trgovce postaje trajna, a pravila će se mijenjati. Prilagodbu radimo mi, bez ponovnog unosa vaših cijena.</p>
       </div>
     </div>
   </section>

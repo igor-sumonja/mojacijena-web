@@ -20,7 +20,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   }
 
   const text = [
-    `Ime: ${ime}`, `Obrt/tvrtka: ${obrt}`, `E-mail: ${email}`, `Web: ${g('web') || '-'}`,
+    `Ime: ${ime}`, `Obrt/tvrtka: ${obrt}`, `E-mail: ${email}`, `Telefon: ${g('telefon') || '-'}`, `Web: ${g('web') || '-'}`,
     `Djelatnost: ${g('djelatnost')}`, `Paket: ${g('paket') || '-'}`, '', g('poruka') || '(bez poruke)',
   ].join('\n');
 
