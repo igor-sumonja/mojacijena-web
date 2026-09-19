@@ -120,6 +120,36 @@ const topFaq = faq.filter((q) => q.landing);
     </div>
   </section>
 
+  <!-- 4b. Kako izgleda (samoposluga) -->
+  <section class="section">
+    <div class="container-x flex flex-col gap-10">
+      <div class="flex flex-col gap-3">
+        <p class="eyebrow">Kako izgleda</p>
+        <h2 class="text-3xl sm:text-4xl">Od računa do javnog cjenika, sami</h2>
+        <p class="max-w-[680px] text-lg text-ink-2">Besplatni plan otvorite i vodite sami: unesete cijene, objavite, i dobijete javnu stranicu s QR kodom te datoteke za preuzimanje.</p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        {[
+          { n: '1', slika: '/koraci/registracija.png', naslov: 'Otvorite besplatan račun', opis: 'Bez kartice: e-mail, naziv i OIB, potvrda linkom iz e-maila.' },
+          { n: '2', slika: '/koraci/portal.png', naslov: 'Unesite cijene i objavite', opis: 'Cijene i sidrene cijene na jednom ekranu; kliknete „Objavi” i cjenik je vani.' },
+          { n: '3', slika: '/koraci/javni-cjenik.png', naslov: 'Javni cjenik i datoteke', opis: 'Javna stranica, QR kod i XML, CSV i PDF — dohvatljivo bez prijave.' },
+        ].map((k) => (
+          <div class="flex flex-col gap-4">
+            <div class="overflow-hidden rounded-xl border border-line bg-white shadow-[0_16px_36px_rgba(28,34,41,0.07)]">
+              <img src={k.slika} alt={k.naslov} width="1600" height="1100" loading="lazy" class="block w-full" />
+            </div>
+            <div class="flex items-baseline gap-2.5">
+              <span class="font-serif text-xl font-semibold text-accent">{k.n}</span>
+              <h3 class="font-sans text-lg">{k.naslov}</h3>
+            </div>
+            <p class="-mt-2 text-ink-2">{k.opis}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-[15px]"><a href="https://cjenik.mojacijena.hr/portal/registracija" class="font-semibold text-accent">Kreni besplatno →</a></p>
+    </div>
+  </section>
+
   <!-- 5. Zašto kod nas -->
   <section class="container-x py-16 sm:py-20">
     <div class="grid gap-10 rounded-2xl bg-ink px-7 py-10 text-paper sm:px-12 sm:py-14 lg:grid-cols-2 lg:gap-16">
